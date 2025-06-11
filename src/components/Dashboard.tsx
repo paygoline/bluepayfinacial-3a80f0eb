@@ -58,7 +58,7 @@ const Dashboard = () => {
     { 
       icon: <div className="w-8 h-8 bg-gray-600 rounded"></div>, 
       label: "Watch",
-      action: () => window.open('https://t.me/bluepay247', '_blank')
+      action: () => window.open('t.me/Paygofficial', '_blank')
     },
     { 
       icon: <BarChart3 className="w-8 h-8 text-blue-600" />, 
