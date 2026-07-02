@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 import { useAuth } from '../contexts/AuthContext';
 import { useAutoSlide } from '../hooks/useAutoSlide';
-import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, CreditCard, BarChart3, Database, Headphones, Globe, DollarSign, User, PlayCircle, Sparkles } from 'lucide-react';
+import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
+import { DashboardSkeleton, Spinner } from './ui/loader';
 import BuyPayId from './BuyPayId';
 import Transfer from './Transfer';
 import Airtime from './Airtime';
@@ -28,8 +29,16 @@ const Dashboard = () => {
   const [currentView, setCurrentView] = useState('dashboard');
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const [showOnboardingPopup, setShowOnboardingPopup] = useState(!isOnboardingComplete);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useAutoSlide(api, 4000);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 900);
+    return () => clearTimeout(t);
+  }, []);
+
 
   const handleLogout = () => {
     setShowLogoutDialog(true);
