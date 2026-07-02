@@ -251,22 +251,23 @@ const Dashboard = () => {
           <p className="text-xs opacity-80 mt-1">Weekly Rewards: ₦180,000.00</p>
 
 
-          <div className="flex space-x-4 mt-6">
-            <Button 
+          <div className="flex space-x-3 mt-5">
+            <Button
               onClick={() => setCurrentView('upgrade')}
-              className="flex-1 bg-white text-purple-600 hover:bg-gray-100 rounded-full py-3 flex items-center justify-center space-x-2"
+              className="flex-1 bg-white text-purple-700 hover:bg-purple-50 rounded-full py-3 flex items-center justify-center space-x-2 shadow-lg shadow-black/10 font-semibold"
             >
-              <CheckCircle className="w-5 h-5" />
+              <CheckCircle className="w-4 h-4" />
               <span>Upgrade</span>
             </Button>
-            <Button 
+            <Button
               onClick={() => setCurrentView('transfer')}
-              className="flex-1 bg-white text-purple-600 hover:bg-gray-100 rounded-full py-3 flex items-center justify-center space-x-2"
+              className="flex-1 bg-gradient-to-r from-orange-400 to-pink-500 text-white hover:opacity-95 rounded-full py-3 flex items-center justify-center space-x-2 shadow-lg shadow-pink-500/30 font-semibold"
             >
-              <ArrowUp className="w-5 h-5" />
+              <ArrowUp className="w-4 h-4" />
               <span>Transfer</span>
             </Button>
           </div>
+
         </div>
         </div>
       </div>
