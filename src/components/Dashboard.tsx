@@ -51,49 +51,49 @@ const Dashboard = () => {
 
   const quickActions = [
     {
-      icon: <CreditCard className="w-6 h-6 text-white" />,
+      icon: "💳",
       label: "Buy PAY ID",
       gradient: "from-purple-500 to-fuchsia-500",
       action: () => setCurrentView('buy-pay-id')
     },
     {
-      icon: <PlayCircle className="w-6 h-6 text-white" />,
+      icon: "📺",
       label: "Watch",
       gradient: "from-slate-700 to-slate-900",
       action: () => window.open('t.me/Paygofficial', '_blank')
     },
     {
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: "📱",
       label: "Airtime",
       gradient: "from-sky-500 to-blue-600",
       action: () => setCurrentView('airtime')
     },
     {
-      icon: <Database className="w-6 h-6 text-white" />,
+      icon: "🌐",
       label: "Data",
       gradient: "from-rose-500 to-red-600",
       action: () => setCurrentView('data')
     },
     {
-      icon: <Headphones className="w-6 h-6 text-white" />,
+      icon: "🎧",
       label: "Support",
       gradient: "from-teal-500 to-emerald-600",
       action: () => setCurrentView('support')
     },
     {
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: "👥",
       label: "Group",
       gradient: "from-cyan-500 to-sky-600",
       action: () => setCurrentView('join-communities')
     },
     {
-      icon: <DollarSign className="w-6 h-6 text-white" />,
+      icon: "💰",
       label: "Earn More",
       gradient: "from-amber-400 to-orange-500",
       action: () => setCurrentView('earn-more')
     },
     {
-      icon: <User className="w-6 h-6 text-white" />,
+      icon: "👤",
       label: "Profile",
       gradient: "from-indigo-500 to-purple-600",
       action: () => setCurrentView('profile')
