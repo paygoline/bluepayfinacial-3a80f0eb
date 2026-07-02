@@ -199,29 +199,33 @@ const Dashboard = () => {
 
       {/* Header */}
       <div className="mx-2">
-        <div className="bg-purple-900 text-white p-4 rounded-b-3xl">
-        <div className="flex items-center justify-between mb-6">
+        <div className="relative overflow-hidden bg-gradient-to-br from-purple-800 via-purple-900 to-indigo-900 text-white p-5 rounded-b-[2rem] shadow-xl shadow-purple-900/20">
+          {/* decorative blobs */}
+          <div className="pointer-events-none absolute -top-12 -right-10 w-40 h-40 rounded-full bg-fuchsia-500/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-10 w-40 h-40 rounded-full bg-orange-400/20 blur-3xl" />
+
+        <div className="relative flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <span className="text-purple-600 font-bold text-lg">
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-white to-purple-100 flex items-center justify-center ring-2 ring-white/40 shadow-md">
+              <span className="text-purple-700 font-bold text-lg">
                 {user?.name?.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Hi, {user?.name} 👋</h1>
-              <p className="text-sm opacity-90">Welcome back!</p>
+              <h1 className="text-lg font-bold leading-tight">Hi, {user?.name} 👋</h1>
+              <p className="text-xs opacity-80">Welcome back!</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <Button 
+          <div className="flex items-center space-x-2">
+            <Button
               onClick={() => setCurrentView('transaction-history')}
-              className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-sm p-2 rounded-full ring-1 ring-white/20"
             >
-              <Bell className="w-6 h-6" />
+              <Bell className="w-5 h-5" />
             </Button>
-            <Button 
+            <Button
               onClick={handleLogout}
-              className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white px-3 py-2 rounded-full text-xs ring-1 ring-white/20"
             >
               Logout
             </Button>
@@ -229,22 +233,23 @@ const Dashboard = () => {
         </div>
 
         {/* Balance Card */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-          <p className="text-sm opacity-90 mb-2">Your Balance</p>
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold">
-                {balanceVisible ? `₦${(user?.balance || 0).toLocaleString()}.00` : '₦***,***.00'}
-              </h2>
-              <p className="text-sm opacity-90">Weekly Rewards: ₦180,000.00</p>
-            </div>
+        <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-5 ring-1 ring-white/20 shadow-inner">
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs uppercase tracking-wider opacity-80 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5" /> Your Balance
+            </p>
             <Button
               onClick={() => setBalanceVisible(!balanceVisible)}
-              className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
+              className="bg-white/15 hover:bg-white/25 p-2 rounded-full"
             >
-              {balanceVisible ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              {balanceVisible ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </Button>
           </div>
+          <h2 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+            {balanceVisible ? `₦${(user?.balance || 0).toLocaleString()}.00` : '₦***,***.00'}
+          </h2>
+          <p className="text-xs opacity-80 mt-1">Weekly Rewards: ₦180,000.00</p>
+
 
           <div className="flex space-x-4 mt-6">
             <Button 
