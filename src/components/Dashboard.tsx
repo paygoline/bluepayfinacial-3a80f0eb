@@ -51,49 +51,49 @@ const Dashboard = () => {
 
   const quickActions = [
     {
-      icon: <CreditCard className="w-6 h-6 text-white" />,
+      icon: "💳",
       label: "Buy PAY ID",
       gradient: "from-purple-500 to-fuchsia-500",
       action: () => setCurrentView('buy-pay-id')
     },
     {
-      icon: <PlayCircle className="w-6 h-6 text-white" />,
+      icon: "📺",
       label: "Watch",
       gradient: "from-slate-700 to-slate-900",
       action: () => window.open('t.me/Paygofficial', '_blank')
     },
     {
-      icon: <BarChart3 className="w-6 h-6 text-white" />,
+      icon: "📱",
       label: "Airtime",
       gradient: "from-sky-500 to-blue-600",
       action: () => setCurrentView('airtime')
     },
     {
-      icon: <Database className="w-6 h-6 text-white" />,
+      icon: "🌐",
       label: "Data",
       gradient: "from-rose-500 to-red-600",
       action: () => setCurrentView('data')
     },
     {
-      icon: <Headphones className="w-6 h-6 text-white" />,
+      icon: "🎧",
       label: "Support",
       gradient: "from-teal-500 to-emerald-600",
       action: () => setCurrentView('support')
     },
     {
-      icon: <Globe className="w-6 h-6 text-white" />,
+      icon: "👥",
       label: "Group",
       gradient: "from-cyan-500 to-sky-600",
       action: () => setCurrentView('join-communities')
     },
     {
-      icon: <DollarSign className="w-6 h-6 text-white" />,
+      icon: "💰",
       label: "Earn More",
       gradient: "from-amber-400 to-orange-500",
       action: () => setCurrentView('earn-more')
     },
     {
-      icon: <User className="w-6 h-6 text-white" />,
+      icon: "👤",
       label: "Profile",
       gradient: "from-indigo-500 to-purple-600",
       action: () => setCurrentView('profile')
@@ -283,7 +283,7 @@ const Dashboard = () => {
                 className="group flex flex-col items-center text-center focus:outline-none"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${action.gradient} flex items-center justify-center shadow-lg shadow-black/10 ring-1 ring-white/40 mb-2 transition-transform duration-200 group-hover:-translate-y-0.5 group-active:scale-95`}>
-                  {action.icon}
+                  <span className="text-2xl drop-shadow-sm">{action.icon}</span>
                 </div>
                 <p className="text-[11px] font-medium text-gray-700 leading-tight">{action.label}</p>
               </button>
