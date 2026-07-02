@@ -283,7 +283,7 @@ const Dashboard = () => {
                 className="group flex flex-col items-center text-center focus:outline-none"
               >
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${action.gradient} flex items-center justify-center shadow-lg shadow-black/10 ring-1 ring-white/40 mb-2 transition-transform duration-200 group-hover:-translate-y-0.5 group-active:scale-95`}>
-                  {action.icon}
+                  <span className="text-2xl drop-shadow-sm">{action.icon}</span>
                 </div>
                 <p className="text-[11px] font-medium text-gray-700 leading-tight">{action.label}</p>
               </button>
