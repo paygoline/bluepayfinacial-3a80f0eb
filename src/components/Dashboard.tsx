@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 import { useAuth } from '../contexts/AuthContext';
 import { useAutoSlide } from '../hooks/useAutoSlide';
-import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, CreditCard, BarChart3, Database, Headphones, Globe, DollarSign, User } from 'lucide-react';
+import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, CreditCard, BarChart3, Database, Headphones, Globe, DollarSign, User, PlayCircle, Sparkles } from 'lucide-react';
 import BuyPayId from './BuyPayId';
 import Transfer from './Transfer';
 import Airtime from './Airtime';
@@ -50,44 +50,52 @@ const Dashboard = () => {
   };
 
   const quickActions = [
-    { 
-      icon: <CreditCard className="w-8 h-8 text-purple-600" />, 
+    {
+      icon: <CreditCard className="w-6 h-6 text-white" />,
       label: "Buy PAY ID",
+      gradient: "from-purple-500 to-fuchsia-500",
       action: () => setCurrentView('buy-pay-id')
     },
-    { 
-      icon: <div className="w-8 h-8 bg-gray-600 rounded"></div>, 
+    {
+      icon: <PlayCircle className="w-6 h-6 text-white" />,
       label: "Watch",
+      gradient: "from-slate-700 to-slate-900",
       action: () => window.open('t.me/Paygofficial', '_blank')
     },
-    { 
-      icon: <BarChart3 className="w-8 h-8 text-blue-600" />, 
+    {
+      icon: <BarChart3 className="w-6 h-6 text-white" />,
       label: "Airtime",
+      gradient: "from-sky-500 to-blue-600",
       action: () => setCurrentView('airtime')
     },
-    { 
-      icon: <Database className="w-8 h-8 text-red-600" />, 
+    {
+      icon: <Database className="w-6 h-6 text-white" />,
       label: "Data",
+      gradient: "from-rose-500 to-red-600",
       action: () => setCurrentView('data')
     },
-    { 
-      icon: <Headphones className="w-8 h-8 text-gray-600" />, 
+    {
+      icon: <Headphones className="w-6 h-6 text-white" />,
       label: "Support",
+      gradient: "from-teal-500 to-emerald-600",
       action: () => setCurrentView('support')
     },
-    { 
-      icon: <Globe className="w-8 h-8 text-blue-500" />, 
+    {
+      icon: <Globe className="w-6 h-6 text-white" />,
       label: "Group",
+      gradient: "from-cyan-500 to-sky-600",
       action: () => setCurrentView('join-communities')
     },
-    { 
-      icon: <DollarSign className="w-8 h-8 text-yellow-600" />, 
+    {
+      icon: <DollarSign className="w-6 h-6 text-white" />,
       label: "Earn More",
+      gradient: "from-amber-400 to-orange-500",
       action: () => setCurrentView('earn-more')
     },
-    { 
-      icon: <User className="w-8 h-8 text-gray-600" />, 
+    {
+      icon: <User className="w-6 h-6 text-white" />,
       label: "Profile",
+      gradient: "from-indigo-500 to-purple-600",
       action: () => setCurrentView('profile')
     }
   ];
@@ -191,29 +199,33 @@ const Dashboard = () => {
 
       {/* Header */}
       <div className="mx-2">
-        <div className="bg-purple-900 text-white p-4 rounded-b-3xl">
-        <div className="flex items-center justify-between mb-6">
+        <div className="relative overflow-hidden bg-gradient-to-br from-purple-800 via-purple-900 to-indigo-900 text-white p-5 rounded-b-[2rem] shadow-xl shadow-purple-900/20">
+          {/* decorative blobs */}
+          <div className="pointer-events-none absolute -top-12 -right-10 w-40 h-40 rounded-full bg-fuchsia-500/30 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-10 w-40 h-40 rounded-full bg-orange-400/20 blur-3xl" />
+
+        <div className="relative flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <span className="text-purple-600 font-bold text-lg">
+            <div className="w-11 h-11 rounded-full bg-gradient-to-br from-white to-purple-100 flex items-center justify-center ring-2 ring-white/40 shadow-md">
+              <span className="text-purple-700 font-bold text-lg">
                 {user?.name?.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">Hi, {user?.name} 👋</h1>
-              <p className="text-sm opacity-90">Welcome back!</p>
+              <h1 className="text-lg font-bold leading-tight">Hi, {user?.name} 👋</h1>
+              <p className="text-xs opacity-80">Welcome back!</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <Button 
+          <div className="flex items-center space-x-2">
+            <Button
               onClick={() => setCurrentView('transaction-history')}
-              className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-sm p-2 rounded-full ring-1 ring-white/20"
             >
-              <Bell className="w-6 h-6" />
+              <Bell className="w-5 h-5" />
             </Button>
-            <Button 
+            <Button
               onClick={handleLogout}
-              className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-sm text-white px-3 py-2 rounded-full text-xs ring-1 ring-white/20"
             >
               Logout
             </Button>
@@ -221,58 +233,64 @@ const Dashboard = () => {
         </div>
 
         {/* Balance Card */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-          <p className="text-sm opacity-90 mb-2">Your Balance</p>
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold">
-                {balanceVisible ? `₦${(user?.balance || 0).toLocaleString()}.00` : '₦***,***.00'}
-              </h2>
-              <p className="text-sm opacity-90">Weekly Rewards: ₦180,000.00</p>
-            </div>
+        <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-5 ring-1 ring-white/20 shadow-inner">
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs uppercase tracking-wider opacity-80 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5" /> Your Balance
+            </p>
             <Button
               onClick={() => setBalanceVisible(!balanceVisible)}
-              className="bg-white/20 hover:bg-white/30 p-2 rounded-full"
+              className="bg-white/15 hover:bg-white/25 p-2 rounded-full"
             >
-              {balanceVisible ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              {balanceVisible ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </Button>
           </div>
+          <h2 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+            {balanceVisible ? `₦${(user?.balance || 0).toLocaleString()}.00` : '₦***,***.00'}
+          </h2>
+          <p className="text-xs opacity-80 mt-1">Weekly Rewards: ₦180,000.00</p>
 
-          <div className="flex space-x-4 mt-6">
-            <Button 
+
+          <div className="flex space-x-3 mt-5">
+            <Button
               onClick={() => setCurrentView('upgrade')}
-              className="flex-1 bg-white text-purple-600 hover:bg-gray-100 rounded-full py-3 flex items-center justify-center space-x-2"
+              className="flex-1 bg-white text-purple-700 hover:bg-purple-50 rounded-full py-3 flex items-center justify-center space-x-2 shadow-lg shadow-black/10 font-semibold"
             >
-              <CheckCircle className="w-5 h-5" />
+              <CheckCircle className="w-4 h-4" />
               <span>Upgrade</span>
             </Button>
-            <Button 
+            <Button
               onClick={() => setCurrentView('transfer')}
-              className="flex-1 bg-white text-purple-600 hover:bg-gray-100 rounded-full py-3 flex items-center justify-center space-x-2"
+              className="flex-1 bg-gradient-to-r from-orange-400 to-pink-500 text-white hover:opacity-95 rounded-full py-3 flex items-center justify-center space-x-2 shadow-lg shadow-pink-500/30 font-semibold"
             >
-              <ArrowUp className="w-5 h-5" />
+              <ArrowUp className="w-4 h-4" />
               <span>Transfer</span>
             </Button>
           </div>
+
         </div>
         </div>
       </div>
 
       {/* Quick Actions */}
       <div className="p-6">
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          {quickActions.map((action, index) => (
-            <div key={index} className="text-center">
-              <button 
+        <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white mb-8">
+          <div className="grid grid-cols-4 gap-3">
+            {quickActions.map((action, index) => (
+              <button
+                key={index}
                 onClick={action.action}
-                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow mb-2 w-full"
+                className="group flex flex-col items-center text-center focus:outline-none"
               >
-                {action.icon}
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${action.gradient} flex items-center justify-center shadow-lg shadow-black/10 ring-1 ring-white/40 mb-2 transition-transform duration-200 group-hover:-translate-y-0.5 group-active:scale-95`}>
+                  {action.icon}
+                </div>
+                <p className="text-[11px] font-medium text-gray-700 leading-tight">{action.label}</p>
               </button>
-              <p className="text-xs text-gray-600">{action.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
 
         {/* Promotions Carousel */}
         <div>
