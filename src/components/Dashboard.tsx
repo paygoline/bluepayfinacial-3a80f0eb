@@ -63,10 +63,6 @@ const Dashboard = () => {
   };
 
 
-  const handleCompleteOnboarding = () => {
-    completeOnboarding();
-    setShowOnboardingPopup(false);
-  };
 
   const quickActions = [
     {
