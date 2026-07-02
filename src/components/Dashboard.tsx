@@ -268,19 +268,23 @@ const Dashboard = () => {
 
       {/* Quick Actions */}
       <div className="p-6">
-        <div className="grid grid-cols-4 gap-4 mb-8">
-          {quickActions.map((action, index) => (
-            <div key={index} className="text-center">
-              <button 
+        <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white mb-8">
+          <div className="grid grid-cols-4 gap-3">
+            {quickActions.map((action, index) => (
+              <button
+                key={index}
                 onClick={action.action}
-                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow mb-2 w-full"
+                className="group flex flex-col items-center text-center focus:outline-none"
               >
-                {action.icon}
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${action.gradient} flex items-center justify-center shadow-lg shadow-black/10 ring-1 ring-white/40 mb-2 transition-transform duration-200 group-hover:-translate-y-0.5 group-active:scale-95`}>
+                  {action.icon}
+                </div>
+                <p className="text-[11px] font-medium text-gray-700 leading-tight">{action.label}</p>
               </button>
-              <p className="text-xs text-gray-600">{action.label}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
 
         {/* Promotions Carousel */}
         <div>
