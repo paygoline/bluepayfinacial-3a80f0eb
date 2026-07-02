@@ -45,13 +45,23 @@ const Dashboard = () => {
   };
 
   const confirmLogout = () => {
-    logout();
-    setShowLogoutDialog(false);
+    setIsLoggingOut(true);
+    setTimeout(() => {
+      logout();
+      setShowLogoutDialog(false);
+      setIsLoggingOut(false);
+    }, 800);
   };
 
   const cancelLogout = () => {
     setShowLogoutDialog(false);
   };
+
+  const handleCompleteOnboarding = () => {
+    completeOnboarding();
+    setShowOnboardingPopup(false);
+  };
+
 
   const handleCompleteOnboarding = () => {
     completeOnboarding();
