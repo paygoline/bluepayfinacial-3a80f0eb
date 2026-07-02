@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 import { useAuth } from '../contexts/AuthContext';
 import { useAutoSlide } from '../hooks/useAutoSlide';
-import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, CreditCard, BarChart3, Database, Headphones, Globe, DollarSign, User } from 'lucide-react';
+import { Bell, Eye, EyeOff, ArrowUp, CheckCircle, CreditCard, BarChart3, Database, Headphones, Globe, DollarSign, User, PlayCircle, Sparkles } from 'lucide-react';
 import BuyPayId from './BuyPayId';
 import Transfer from './Transfer';
 import Airtime from './Airtime';
